@@ -1,0 +1,36 @@
+﻿<Properties StartupConfiguration="{545FE461-F69A-4438-9A9E-3F39DBB3A96A}|Default">
+  <MonoDevelop.Ide.ItemProperties.OrderAPI PreferredExecutionTarget="/Applications/Arc.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="Controllers/OrderController.cs" Line="26" Column="5" />
+      <File FileName="Middleware/JwtMiddleware.cs" Line="18" Column="6" />
+      <File FileName="Program.cs" Line="63" Column="1" />
+      <File FileName="User.cs" Line="1" Column="1" />
+      <File FileName="RabbitMQService.cs" Line="1" Column="1" />
+      <File FileName="appsettings.json" Line="18" Column="5" />
+      <File FileName="appsettings.Development.json" Line="20" Column="14" />
+      <File FileName="Order.cs" Line="1" Column="1" />
+      <File FileName="Middleware/JwtAuthorizationAttribute.cs" Line="46" Column="3" />
+      <File FileName="Middleware/AuthorizationMiddleware.cs" Line="89" Column="3" />
+      <File FileName="Filters/AuthorizeCheckOperationFilter.cs" Line="31" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="OrderAPI" expanded="True">
+            <Node name="OrderAPI">
+              <Node name="Middleware" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
