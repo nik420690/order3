@@ -357,7 +357,7 @@ namespace OrderAPI.Controllers
                 // Make an HTTP request to get the users data
                 using (HttpClient httpClient = new HttpClient())
                 {
-                    httpClient.BaseAddress = new Uri("http://localhost:8000/"); // Replace with the correct URL of the user data API
+                    httpClient.BaseAddress = new Uri("https://user-xojp.onrender.com/"); // Replace with the correct URL of the user data API
                     HttpResponseMessage response = await httpClient.GetAsync("users");
                     response.EnsureSuccessStatusCode();
 

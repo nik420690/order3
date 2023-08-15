@@ -1,23 +1,22 @@
-# Stage 1: Build the application
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
+#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
-
-# Copy csproj and restore dependencies
-COPY *.csproj ./
-RUN dotnet restore
-
-# Copy everything else and build
-COPY . ./
-RUN dotnet publish -c Release -o out
-
-# Stage 2: Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
-WORKDIR /app
-COPY --from=build-env /app/out .
-
-# Expose ports for the web traffic
 EXPOSE 80
 EXPOSE 443
 
-# Start the app
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+COPY ["OrderAPI.csproj", "."]
+RUN dotnet restore "./OrderAPI.csproj"
+COPY . .
+WORKDIR "/src/."
+RUN dotnet build "OrderAPI.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "OrderAPI.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "OrderAPI.dll"]
